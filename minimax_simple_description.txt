@@ -1,0 +1,155 @@
+Simple Minimax Algorithm Description
+==================================
+
+1. Algorithm Overview
+--------------------
+The simple minimax algorithm is implemented for maze solving with the following key components:
+- Pure minimax without alpha-beta pruning
+- Depth-limited search
+- Combined heuristic function
+- Path reconstruction
+- Cycle prevention using visited set
+
+2. Core Components
+-----------------
+a) Minimax Function:
+   - Parameters:
+     * maze: The maze structure
+     * move: Current position
+     * goal: Target position
+     * depth: Search depth limit
+     * is_maximizing: Boolean for player turn
+     * visited: Set of visited positions
+
+   - Base Cases:
+     * If current position equals goal: return 0
+     * If depth limit reached: return heuristic value
+     * If no valid moves: return infinity/-infinity
+
+b) Search Strategy:
+   - Maximizing player: Tries to maximize score
+   - Minimizing player: Tries to minimize score
+   - Alternates between players at each depth level
+   - Explores all possible moves at each level
+
+3. Heuristic Function
+--------------------
+The heuristic function combines multiple distance metrics:
+
+a) Manhattan Distance (70% weight):
+   - Formula: |x1 - x2| + |y1 - y2|
+   - Measures grid-based distance
+   - More accurate for grid-based movement
+
+b) Euclidean Distance (30% weight):
+   - Formula: sqrt((x1 - x2)² + (y1 - y2)²)
+   - Measures straight-line distance
+   - Provides smoother distance estimation
+
+c) Combined Score:
+   - distance_score = 0.7 * manhattan + 0.3 * euclidean
+   - Negative value (to minimize distance)
+   - Returns 0 if at goal
+
+4. Search Process
+----------------
+1. Start at initial position
+2. For each valid move:
+   - Check if position is visited
+   - Calculate heuristic value
+   - Recursively evaluate next moves
+   - Update best move if better score found
+3. Return best move and score
+
+5. Optimization Features
+-----------------------
+- Visited set to prevent cycles
+- Move sorting by heuristic value
+- Early termination on goal reach
+- Depth limiting to prevent infinite search
+- Path caching for efficiency
+
+6. Path Finding Strategy
+-----------------------
+1. Start with current position
+2. Get possible moves
+3. Evaluate each move using minimax
+4. Choose move with best score
+5. Update position and repeat
+6. Stop when goal is reached or no valid moves
+
+7. Performance Considerations
+---------------------------
+- Search depth: 5-8 moves ahead
+- Memory usage: O(b^d) where b is branching factor
+- Time complexity: O(b^d)
+- Space complexity: O(d) for recursion stack
+
+8. Advantages
+------------
+- Simpler implementation than alpha-beta version
+- Guaranteed optimal path finding
+- Handles complex maze structures
+- Adaptable to different maze sizes
+- Can find alternative paths if needed
+
+9. Limitations
+-------------
+- Slower than alpha-beta pruning version
+- Performance depends on search depth
+- Memory usage increases with depth
+- May not find path if depth too limited
+- Explores more nodes than necessary
+
+10. Use Cases
+------------
+Best suited for:
+- Small to medium maze structures
+- When code simplicity is important
+- When optimal path is required
+- When multiple paths need evaluation
+- Educational purposes
+
+11. Implementation Details
+-------------------------
+a) Move Class:
+   - x, y coordinates
+   - Copy functionality
+   - Equality comparison
+
+b) Maze Class:
+   - Grid representation
+   - Move validation
+   - Direction handling
+   - Boundary checking
+
+c) Game Class:
+   - Pygame visualization
+   - Path tracking
+   - Move animation
+   - State management
+
+12. Visual Features
+------------------
+- White: Unvisited paths
+- Yellow: Visited cells
+- Green: Start position
+- Red: Goal position
+- Blue: Current position
+- Black: Walls
+
+13. Game Flow
+------------
+1. Initialize maze and positions
+2. Find complete path using minimax
+3. Animate movement along path
+4. Track visited cells
+5. Stop at goal or path completion
+
+14. Error Handling
+----------------
+- Checks for valid moves
+- Handles no-path scenarios
+- Increases depth if needed
+- Provides warning messages
+- Graceful termination 
