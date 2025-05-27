@@ -1,0 +1,160 @@
+Depth First Search (DFS) Algorithm Description
+=============================================
+
+1. Algorithm Overview
+--------------------
+The DFS algorithm is implemented for maze solving with the following key components:
+- Recursive exploration
+- Depth-first traversal
+- Parent pointer tracking
+- Path reconstruction
+- Visited set for cycle prevention
+
+2. Core Components
+-----------------
+a) DFS Function:
+   - Parameters:
+     * maze: The maze structure
+     * start: Starting position
+     * goal: Target position
+   - Returns: List of moves forming the path
+
+b) Data Structures:
+   - Visited Set: To track explored nodes
+   - Parent Dictionary: To reconstruct path
+   - Path List: Final solution path
+
+3. Search Process
+----------------
+1. Initialize data structures:
+   - Create empty visited set
+   - Initialize parent dictionary
+   - Set start's parent to None
+
+2. Main DFS function:
+   - Mark current node as visited
+   - If current is goal, return True
+   - For each neighbor:
+     * Skip if already visited
+     * Set parent pointer
+     * Recursively explore path
+     * Return True if path found
+
+4. Path Reconstruction
+---------------------
+1. Start at goal node
+2. Follow parent pointers back to start
+3. Reverse path to get start-to-goal order
+4. Return complete path
+
+5. Key Features
+--------------
+- Complete exploration
+- Memory efficient
+- Simple implementation
+- No heuristic required
+- Recursive approach
+
+6. Performance Considerations
+---------------------------
+- Time complexity: O(|V| + |E|)
+  * |V| = number of vertices
+  * |E| = number of edges
+- Space complexity: O(|V|)
+- Stack space: O(depth of recursion)
+- Path reconstruction: O(path length)
+
+7. Advantages
+------------
+- Memory efficient
+- Simple to implement
+- Complete exploration
+- No need for heuristics
+- Good for deep paths
+
+8. Limitations
+-------------
+- May not find shortest path
+- Can get stuck in deep paths
+- No direction bias
+- Recursive stack limits
+- May explore unnecessary nodes
+
+9. Use Cases
+-----------
+Best suited for:
+- When memory is limited
+- When path length isn't critical
+- When complete exploration is needed
+- When simplicity is important
+- When deep paths are expected
+
+10. Implementation Details
+-------------------------
+a) Move Class:
+   - x, y coordinates
+   - Hashable for set operations
+   - Equality comparison
+   - Copy functionality
+
+b) Maze Class:
+   - Grid representation
+   - Move validation
+   - Direction handling
+   - Boundary checking
+
+c) Game Class:
+   - Pygame visualization
+   - Path tracking
+   - Move animation
+   - State management
+
+11. Visual Features
+------------------
+- White: Unvisited paths
+- Yellow: Visited cells
+- Green: Start position
+- Red: Goal position
+- Blue: Current position
+- Black: Walls
+- Gray: Explored cells
+
+12. Game Flow
+------------
+1. Initialize maze and positions
+2. Find complete path using DFS
+3. Animate movement along path
+4. Track visited cells
+5. Stop at goal or path completion
+
+13. Error Handling
+----------------
+- Checks for valid moves
+- Handles no-path scenarios
+- Provides warning messages
+- Graceful termination
+- Recursion depth protection
+
+14. Comparison with Other Algorithms
+----------------------------------
+Advantages over Minimax:
+- Simpler implementation
+- More memory efficient
+- No need for depth limiting
+- Faster for some cases
+- Complete exploration
+
+Advantages over BFS:
+- Less memory usage
+- Better for deep paths
+- Simpler implementation
+- No queue needed
+- Recursive approach
+
+15. Optimization Features
+-----------------------
+- Early goal detection
+- Path caching
+- Visited set for cycle prevention
+- Parent pointer tracking
+- Recursive optimization 
