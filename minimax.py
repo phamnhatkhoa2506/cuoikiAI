@@ -157,8 +157,12 @@ class Game:
         self.path = self.find_path()
         if not self.path:
             print("Warning: No valid path found!")
+            # Try to find a path with increased depth
+            self.path = self.find_path(depth=8)
+            if not self.path:
+                print("Error: Still no valid path found!")
 
-    def find_path(self):
+    def find_path(self, depth=5):
         """Find the complete path from start to goal"""
         path = []
         current = self.start
@@ -176,7 +180,7 @@ class Game:
                 return path
                 
             # Get the best move using minimax
-            _, best_move = Minimax.minimax(self.maze, current, self.goal, 5, True, visited=visited)
+            _, best_move = Minimax.minimax(self.maze, current, self.goal, depth, True, visited=visited)
             
             if best_move:
                 path.append(best_move)
@@ -263,13 +267,13 @@ class Game:
 
 
 if __name__ == "__main__":
-    # Bigger maze (0 = path, 1 = wall)
+    # Modified maze with guaranteed path to goal (0 = path, 1 = wall)
     maze_data = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [1, 1, 1, 0, 1, 1, 0, 1, 1, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [0, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [1, 1, 1, 1, 0, 0, 1, 1, 1, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 1, 1, 1, 1, 1, 1, 1, 1, 0],
