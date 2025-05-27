@@ -1,0 +1,121 @@
+Multi-Layer Neural Network Model Description
+=========================================
+
+1. Network Architecture
+----------------------
+The model implements a 3-layer neural network with the following structure:
+- Input Layer: 4 neurons (matching input features)
+- Hidden Layer 1: 64 neurons with ReLU activation
+- Hidden Layer 2: 32 neurons with ReLU activation
+- Output Layer: 3 neurons with Softmax activation (matching number of classes)
+
+Total neurons: 103 neurons (4 + 64 + 32 + 3)
+
+2. Layer-by-Layer Description
+----------------------------
+a) Input Layer (4 neurons):
+   - Receives 4 input features from the dataset
+   - Each neuron represents one feature (e.g., sepal length, sepal width, petal length, petal width)
+   - No activation function, just passes the input values to the next layer
+
+b) Hidden Layer 1 (64 neurons):
+   - Each neuron receives inputs from all 4 input neurons
+   - Uses ReLU activation function: f(x) = max(0, x)
+   - Learns complex patterns and relationships between input features
+   - Each neuron has:
+     * 4 input weights (one for each input feature)
+     * 1 bias term
+     * Total parameters: 64 * (4 + 1) = 320 parameters
+
+c) Hidden Layer 2 (32 neurons):
+   - Each neuron receives inputs from all 64 neurons in Hidden Layer 1
+   - Uses ReLU activation function
+   - Further refines the learned patterns
+   - Each neuron has:
+     * 64 input weights
+     * 1 bias term
+     * Total parameters: 32 * (64 + 1) = 2,080 parameters
+
+d) Output Layer (3 neurons):
+   - Each neuron corresponds to one class
+   - Uses Softmax activation function
+   - Produces probability distribution over classes
+   - Each neuron has:
+     * 32 input weights
+     * 1 bias term
+     * Total parameters: 3 * (32 + 1) = 99 parameters
+
+Total parameters in the network: 320 + 2,080 + 99 = 2,499 parameters
+
+3. Activation Functions
+----------------------
+a) ReLU (Rectified Linear Unit):
+   - Used in hidden layers
+   - Formula: f(x) = max(0, x)
+   - Helps with vanishing gradient problem
+   - Introduces non-linearity to the network
+   - Allows network to learn complex patterns
+
+b) Softmax:
+   - Used in output layer
+   - Converts raw scores to probabilities
+   - Ensures output probabilities sum to 1
+   - Formula: softmax(x_i) = exp(x_i) / sum(exp(x_j))
+
+4. Training Process
+------------------
+a) Data Preprocessing:
+   - Features are scaled using StandardScaler
+   - Labels are converted to one-hot encoding
+   - Data is shuffled before each epoch
+
+b) Mini-batch Training:
+   - Batch size: 32 samples
+   - For each batch:
+     1. Forward pass through all layers
+     2. Compute loss (cross-entropy)
+     3. Backpropagate error
+     4. Update weights and biases
+
+c) Learning Process:
+   - Learning rate: 0.01
+   - Number of epochs: 1000
+   - Uses gradient descent to minimize loss
+   - Tracks training loss and accuracy
+
+5. Classification Process
+------------------------
+1. Input features are scaled using the same scaler as training data
+2. Data flows through the network:
+   - Input Layer → Hidden Layer 1 → Hidden Layer 2 → Output Layer
+3. Each layer transforms the data:
+   - Hidden layers use ReLU to learn patterns
+   - Output layer uses Softmax to get class probabilities
+4. Final classification:
+   - Class with highest probability is selected
+   - Output is the index of the predicted class
+
+6. Model Evaluation
+------------------
+The model provides several evaluation metrics:
+- Training loss over time
+- Training accuracy over time
+- Confusion matrix for predictions
+- Detailed prediction results saved to file
+
+7. File Output
+-------------
+Predictions are saved to 'neural_network3_predictions.txt' with:
+- Index of each sample
+- Input features
+- Predicted class
+
+8. Key Features
+--------------
+- Multi-layer architecture for complex pattern recognition
+- ReLU activation for better gradient flow
+- Softmax output for probabilistic classification
+- Mini-batch training for stable learning
+- Feature scaling for better convergence
+- Comprehensive evaluation metrics
+- Detailed prediction output 

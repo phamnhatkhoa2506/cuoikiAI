@@ -1,0 +1,123 @@
+KMeans Clustering Results using euclidean distance
+==================================================
+
+Cluster Centroids:
+Cluster 0: [6.6        2.99428571 5.39714286 1.94      ]
+Cluster 1: [4.98666667 3.37666667 1.48333333 0.25      ]
+Cluster 2: [5.78  2.752 4.14  1.292]
+
+Overall Accuracy: 92.22%
+
+Best Cluster to Class Mapping:
+Cluster 0 -> Iris-virginica
+Cluster 1 -> Iris-setosa
+Cluster 2 -> Iris-versicolor
+
+Detailed Results:
+--------------------------------------------------
+Index	Original Label	Predicted Cluster	Mapped Class
+--------------------------------------------------
+0	Iris-setosa		Cluster 1		Iris-setosa
+1	Iris-setosa		Cluster 1		Iris-setosa
+2	Iris-setosa		Cluster 1		Iris-setosa
+3	Iris-setosa		Cluster 1		Iris-setosa
+4	Iris-setosa		Cluster 1		Iris-setosa
+5	Iris-setosa		Cluster 1		Iris-setosa
+6	Iris-setosa		Cluster 1		Iris-setosa
+7	Iris-setosa		Cluster 1		Iris-setosa
+8	Iris-setosa		Cluster 1		Iris-setosa
+9	Iris-setosa		Cluster 1		Iris-setosa
+10	Iris-setosa		Cluster 1		Iris-setosa
+11	Iris-setosa		Cluster 1		Iris-setosa
+12	Iris-setosa		Cluster 1		Iris-setosa
+13	Iris-setosa		Cluster 1		Iris-setosa
+14	Iris-setosa		Cluster 1		Iris-setosa
+15	Iris-setosa		Cluster 1		Iris-setosa
+16	Iris-setosa		Cluster 1		Iris-setosa
+17	Iris-setosa		Cluster 1		Iris-setosa
+18	Iris-setosa		Cluster 1		Iris-setosa
+19	Iris-setosa		Cluster 1		Iris-setosa
+20	Iris-setosa		Cluster 1		Iris-setosa
+21	Iris-setosa		Cluster 1		Iris-setosa
+22	Iris-setosa		Cluster 1		Iris-setosa
+23	Iris-setosa		Cluster 1		Iris-setosa
+24	Iris-setosa		Cluster 1		Iris-setosa
+25	Iris-setosa		Cluster 1		Iris-setosa
+26	Iris-setosa		Cluster 1		Iris-setosa
+27	Iris-setosa		Cluster 1		Iris-setosa
+28	Iris-setosa		Cluster 1		Iris-setosa
+29	Iris-setosa		Cluster 1		Iris-setosa
+30	Iris-versicolor		Cluster 0		Iris-virginica
+31	Iris-versicolor		Cluster 2		Iris-versicolor
+32	Iris-versicolor		Cluster 0		Iris-virginica
+33	Iris-versicolor		Cluster 2		Iris-versicolor
+34	Iris-versicolor		Cluster 2		Iris-versicolor
+35	Iris-versicolor		Cluster 2		Iris-versicolor
+36	Iris-versicolor		Cluster 0		Iris-virginica
+37	Iris-versicolor		Cluster 0		Iris-virginica
+38	Iris-versicolor		Cluster 2		Iris-versicolor
+39	Iris-versicolor		Cluster 2		Iris-versicolor
+40	Iris-versicolor		Cluster 2		Iris-versicolor
+41	Iris-versicolor		Cluster 2		Iris-versicolor
+42	Iris-versicolor		Cluster 2		Iris-versicolor
+43	Iris-versicolor		Cluster 0		Iris-virginica
+44	Iris-versicolor		Cluster 2		Iris-versicolor
+45	Iris-versicolor		Cluster 2		Iris-versicolor
+46	Iris-versicolor		Cluster 0		Iris-virginica
+47	Iris-versicolor		Cluster 2		Iris-versicolor
+48	Iris-versicolor		Cluster 2		Iris-versicolor
+49	Iris-versicolor		Cluster 2		Iris-versicolor
+50	Iris-versicolor		Cluster 2		Iris-versicolor
+51	Iris-versicolor		Cluster 2		Iris-versicolor
+52	Iris-versicolor		Cluster 2		Iris-versicolor
+53	Iris-versicolor		Cluster 2		Iris-versicolor
+54	Iris-versicolor		Cluster 2		Iris-versicolor
+55	Iris-versicolor		Cluster 2		Iris-versicolor
+56	Iris-versicolor		Cluster 2		Iris-versicolor
+57	Iris-versicolor		Cluster 2		Iris-versicolor
+58	Iris-versicolor		Cluster 2		Iris-versicolor
+59	Iris-versicolor		Cluster 2		Iris-versicolor
+60	Iris-virginica		Cluster 0		Iris-virginica
+61	Iris-virginica		Cluster 2		Iris-versicolor
+62	Iris-virginica		Cluster 0		Iris-virginica
+63	Iris-virginica		Cluster 0		Iris-virginica
+64	Iris-virginica		Cluster 0		Iris-virginica
+65	Iris-virginica		Cluster 0		Iris-virginica
+66	Iris-virginica		Cluster 0		Iris-virginica
+67	Iris-virginica		Cluster 0		Iris-virginica
+68	Iris-virginica		Cluster 0		Iris-virginica
+69	Iris-virginica		Cluster 0		Iris-virginica
+70	Iris-virginica		Cluster 0		Iris-virginica
+71	Iris-virginica		Cluster 0		Iris-virginica
+72	Iris-virginica		Cluster 0		Iris-virginica
+73	Iris-virginica		Cluster 0		Iris-virginica
+74	Iris-virginica		Cluster 0		Iris-virginica
+75	Iris-virginica		Cluster 0		Iris-virginica
+76	Iris-virginica		Cluster 0		Iris-virginica
+77	Iris-virginica		Cluster 0		Iris-virginica
+78	Iris-virginica		Cluster 0		Iris-virginica
+79	Iris-virginica		Cluster 0		Iris-virginica
+80	Iris-virginica		Cluster 0		Iris-virginica
+81	Iris-virginica		Cluster 0		Iris-virginica
+82	Iris-virginica		Cluster 0		Iris-virginica
+83	Iris-virginica		Cluster 0		Iris-virginica
+84	Iris-virginica		Cluster 0		Iris-virginica
+85	Iris-virginica		Cluster 0		Iris-virginica
+86	Iris-virginica		Cluster 0		Iris-virginica
+87	Iris-virginica		Cluster 0		Iris-virginica
+88	Iris-virginica		Cluster 0		Iris-virginica
+89	Iris-virginica		Cluster 0		Iris-virginica
+
+Cluster Statistics:
+--------------------------------------------------
+
+Cluster 0 (mapped to Iris-virginica):
+  Iris-versicolor: 6 samples
+  Iris-virginica: 29 samples
+
+Cluster 1 (mapped to Iris-setosa):
+  Iris-setosa: 30 samples
+
+Cluster 2 (mapped to Iris-versicolor):
+  Iris-versicolor: 24 samples
+  Iris-virginica: 1 samples

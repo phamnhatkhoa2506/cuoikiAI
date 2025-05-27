@@ -1,0 +1,117 @@
+Single-Layer Neural Network Model Description
+=========================================
+
+1. Network Architecture
+----------------------
+The model implements a single-layer neural network (logistic regression with softmax) with the following structure:
+- Input Layer: 4 neurons (matching input features)
+- Output Layer: 3 neurons with Softmax activation (matching number of classes)
+
+Total neurons: 7 neurons (4 + 3)
+
+2. Layer-by-Layer Description
+----------------------------
+a) Input Layer (4 neurons):
+   - Receives 4 input features from the dataset
+   - Each neuron represents one feature (e.g., sepal length, sepal width, petal length, petal width)
+   - No activation function, just passes the input values to the next layer
+
+b) Output Layer (3 neurons):
+   - Each neuron corresponds to one class
+   - Uses Softmax activation function
+   - Produces probability distribution over classes
+   - Each neuron has:
+     * 4 input weights (one for each input feature)
+     * 1 bias term
+     * Total parameters: 3 * (4 + 1) = 15 parameters
+
+Total parameters in the network: 15 parameters
+
+3. Activation Function
+---------------------
+Softmax Activation:
+- Used in output layer
+- Converts raw scores to probabilities
+- Ensures output probabilities sum to 1
+- Formula: softmax(x_i) = exp(x_i) / sum(exp(x_j))
+- Helps in multi-class classification by providing probability distribution
+
+4. Training Process
+------------------
+a) Data Preprocessing:
+   - Features are scaled using StandardScaler
+   - Labels are converted to one-hot encoding
+   - Data is shuffled before each epoch
+
+b) Mini-batch Training:
+   - Batch size: 32 samples
+   - For each batch:
+     1. Forward pass through the network
+     2. Compute loss (cross-entropy)
+     3. Backpropagate error
+     4. Update weights and biases
+
+c) Learning Process:
+   - Learning rate: 0.01
+   - Number of epochs: 1000
+   - Uses gradient descent to minimize loss
+   - Tracks training loss and accuracy
+
+5. Classification Process
+------------------------
+1. Input features are scaled using the same scaler as training data
+2. Data flows through the network:
+   - Input Layer → Output Layer
+3. Output layer transforms the data:
+   - Linear transformation: z = Wx + b
+   - Softmax activation to get class probabilities
+4. Final classification:
+   - Class with highest probability is selected
+   - Output is the index of the predicted class
+
+6. Model Evaluation
+------------------
+The model provides several evaluation metrics:
+- Training loss over time
+- Training accuracy over time
+- Confusion matrix for predictions
+- Detailed prediction results saved to file
+
+7. File Output
+-------------
+Predictions are saved to 'neural_network_predictions.txt' with:
+- Index of each sample
+- Input features
+- Predicted class
+
+8. Key Features
+--------------
+- Simple and efficient single-layer architecture
+- Direct mapping from input features to class probabilities
+- Softmax output for probabilistic classification
+- Mini-batch training for stable learning
+- Feature scaling for better convergence
+- Comprehensive evaluation metrics
+- Detailed prediction output
+
+9. Comparison with Multi-Layer Network
+-------------------------------------
+Advantages:
+- Simpler architecture with fewer parameters
+- Faster training and prediction
+- Less prone to overfitting
+- Easier to interpret
+
+Limitations:
+- Cannot learn complex non-linear patterns
+- Limited feature representation capability
+- May not perform as well on complex datasets
+
+10. Use Cases
+------------
+Best suited for:
+- Simple classification tasks
+- Linearly separable data
+- When interpretability is important
+- When computational resources are limited
+- When quick training and prediction are needed 
