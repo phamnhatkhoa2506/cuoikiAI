@@ -1,0 +1,136 @@
+A* Algorithm Description
+=======================
+
+1. Algorithm Overview
+--------------------
+The A* algorithm is implemented for maze solving with the following key components:
+- Priority queue for efficient node selection
+- Open and closed sets for node management
+- Manhattan distance heuristic
+- Path reconstruction using parent pointers
+
+2. Core Components
+-----------------
+a) A* Function:
+   - Parameters:
+     * maze: The maze structure
+     * start: Starting position
+     * goal: Target position
+   - Returns: List of moves forming the path
+
+b) Data Structures:
+   - Open Set: Priority queue of nodes to explore
+   - Closed Set: Set of explored nodes
+   - Came From: Dictionary mapping nodes to their parents
+   - G Score: Cost from start to current node
+   - F Score: G score + heuristic value
+
+3. Heuristic Function
+--------------------
+The heuristic function uses Manhattan distance:
+
+a) Manhattan Distance:
+   - Formula: |x1 - x2| + |y1 - y2|
+   - Measures grid-based distance
+   - Admissible heuristic (never overestimates)
+   - Consistent heuristic (satisfies triangle inequality)
+
+b) Properties:
+   - Always returns non-negative values
+   - Returns 0 when at goal
+   - Monotonic (never decreases along path)
+   - Guarantees optimal path finding
+
+4. Search Process
+----------------
+1. Initialize data structures:
+   - Add start node to open set
+   - Set g_score[start] = 0
+   - Set f_score[start] = heuristic(start, goal)
+
+2. Main loop:
+   - Get node with lowest f_score from open set
+   - If node is goal, reconstruct and return path
+   - Add node to closed set
+   - For each neighbor:
+     * Skip if in closed set
+     * Calculate tentative g_score
+     * If better path found:
+       - Update parent pointer
+       - Update g_score and f_score
+       - Add to open set if not there
+
+5. Path Reconstruction
+---------------------
+1. Start at goal node
+2. Follow parent pointers back to start
+3. Reverse path to get start-to-goal order
+4. Return complete path
+
+6. Optimization Features
+-----------------------
+- Priority queue for efficient node selection
+- Closed set to prevent re-exploration
+- Early goal detection
+- Efficient path reconstruction
+- No need for depth limiting
+
+7. Performance Considerations
+---------------------------
+- Time complexity: O(|E| log |V|)
+  * |E| = number of edges
+  * |V| = number of vertices
+- Space complexity: O(|V|)
+- Memory usage: O(|V|) for storing nodes
+- Queue operations: O(log |V|)
+
+8. Advantages
+------------
+- Guaranteed optimal path finding
+- More efficient than minimax
+- No need for depth limiting
+- Better memory usage
+- Faster for most maze configurations
+- Handles large mazes well
+
+9. Limitations
+-------------
+- Requires admissible heuristic
+- Memory usage scales with maze size
+- May explore more nodes than necessary
+- Performance depends on heuristic quality
+
+10. Use Cases
+------------
+Best suited for:
+- Large maze structures
+- When speed is important
+- When memory is limited
+- When optimal path is required
+- Real-time path finding
+
+11. Comparison with Minimax
+--------------------------
+Advantages over Minimax:
+- No need for depth limiting
+- More efficient memory usage
+- Better handling of large mazes
+- Faster path finding
+- Simpler implementation
+
+12. Implementation Details
+-------------------------
+a) Node Representation:
+   - Move class with x, y coordinates
+   - Hashable for set operations
+   - Comparable for priority queue
+
+b) Priority Queue:
+   - Uses heapq for efficiency
+   - Prioritizes nodes by f_score
+   - Handles tie-breaking
+
+c) Path Finding:
+   - Maintains parent pointers
+   - Reconstructs path at end
+   - Returns empty list if no path found 

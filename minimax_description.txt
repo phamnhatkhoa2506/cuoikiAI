@@ -1,0 +1,110 @@
+Minimax Algorithm Description
+===========================
+
+1. Algorithm Overview
+--------------------
+The minimax algorithm is implemented for maze solving with the following key components:
+- Alpha-beta pruning for optimization
+- Depth-limited search
+- Custom heuristic function
+- Path reconstruction
+
+2. Core Components
+-----------------
+a) Minimax Function:
+   - Parameters:
+     * maze: The maze structure
+     * move: Current position
+     * goal: Target position
+     * depth: Search depth limit
+     * is_maximizing: Boolean for player turn
+     * alpha: Alpha value for pruning
+     * beta: Beta value for pruning
+     * visited: Set of visited positions
+
+   - Base Cases:
+     * If current position equals goal: return 0
+     * If depth limit reached: return heuristic value
+     * If no valid moves: return infinity/-infinity
+
+b) Alpha-Beta Pruning:
+   - Alpha: Best value for maximizing player
+   - Beta: Best value for minimizing player
+   - Pruning occurs when beta <= alpha
+   - Reduces search space for better performance
+
+3. Heuristic Function
+--------------------
+The heuristic function combines multiple distance metrics:
+
+a) Manhattan Distance:
+   - Formula: |x1 - x2| + |y1 - y2|
+   - Measures grid-based distance
+   - Weight: 70% of total score
+
+b) Euclidean Distance:
+   - Formula: sqrt((x1 - x2)² + (y1 - y2)²)
+   - Measures straight-line distance
+   - Weight: 30% of total score
+
+c) Combined Score:
+   - distance_score = 0.7 * manhattan + 0.3 * euclidean
+   - Negative value (to minimize distance)
+   - Returns 0 if at goal
+
+4. Search Process
+----------------
+1. Start at initial position
+2. For each valid move:
+   - Check if position is visited
+   - Calculate heuristic value
+   - Apply alpha-beta pruning
+   - Update best move if better score found
+3. Return best move and score
+
+5. Optimization Features
+-----------------------
+- Visited set to prevent cycles
+- Move sorting by heuristic value
+- Early termination on goal reach
+- Depth limiting to prevent infinite search
+- Alpha-beta pruning for efficiency
+
+6. Path Finding Strategy
+-----------------------
+1. Start with current position
+2. Get possible moves
+3. Evaluate each move using minimax
+4. Choose move with best score
+5. Update position and repeat
+6. Stop when goal is reached or no valid moves
+
+7. Performance Considerations
+---------------------------
+- Search depth: 5-10 moves ahead
+- Memory usage: O(b^d) where b is branching factor
+- Time complexity: O(b^d) with pruning
+- Space complexity: O(d) for recursion stack
+
+8. Advantages
+------------
+- Guaranteed optimal path finding
+- Efficient pruning of search space
+- Handles complex maze structures
+- Adaptable to different maze sizes
+- Can find alternative paths if needed
+
+9. Limitations
+-------------
+- Performance depends on search depth
+- Memory usage increases with depth
+- May not find path if depth too limited
+- Can be slower than A* for simple paths
+
+10. Use Cases
+------------
+Best suited for:
+- Complex maze structures
+- When optimal path is required
+- When multiple paths need evaluation
+- When path quality is more important than speed 
